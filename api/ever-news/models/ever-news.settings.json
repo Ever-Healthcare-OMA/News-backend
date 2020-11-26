@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ever_news",
+  "info": {
+    "name": "everNews",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "header": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "picture": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Hot",
+        "Sport",
+        "Political",
+        "Social"
+      ]
+    },
+    "pinStatus": {
+      "type": "boolean",
+      "default": false,
+      "unique": false
+    },
+    "content": {
+      "type": "richtext",
+      "required": false
+    },
+    "keyword": {
+      "type": "string"
+    }
+  }
+}

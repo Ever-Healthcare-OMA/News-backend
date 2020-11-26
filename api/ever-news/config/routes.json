@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/ever-news",
+      "handler": "ever-news.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ever-news/count",
+      "handler": "ever-news.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/ever-news/:id",
+      "handler": "ever-news.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/ever-news",
+      "handler": "ever-news.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/ever-news/:id",
+      "handler": "ever-news.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/ever-news/:id",
+      "handler": "ever-news.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
