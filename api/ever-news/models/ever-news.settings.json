@@ -31,9 +31,9 @@
       "type": "enumeration",
       "enum": [
         "Hot",
-        "Sport",
-        "Political",
-        "Social"
+        "Social",
+        "Science",
+        "Medical"
       ]
     },
     "pinStatus": {
@@ -46,6 +46,13 @@
       "required": false
     },
     "keyword": {
+      "type": "string"
+    },
+    "agency": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
       "type": "string"
     }
   }

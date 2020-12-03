@@ -144,9 +144,9 @@ type deleteCategoryPayload {
 
 enum ENUM_EVERNEWS_TYPE {
   Hot
-  Sport
-  Political
   Social
+  Science
+  Medical
 }
 
 type EverNews {
@@ -160,6 +160,8 @@ type EverNews {
   pinStatus: Boolean
   content: String
   keyword: String
+  agency: String!
+  date: String
   published_at: DateTime
 }
 
@@ -185,6 +187,8 @@ type EverNewsGroupBy {
   pinStatus: [EverNewsConnectionPinStatus]
   content: [EverNewsConnectionContent]
   keyword: [EverNewsConnectionKeyword]
+  agency: [EverNewsConnectionAgency]
+  date: [EverNewsConnectionDate]
   published_at: [EverNewsConnectionPublished_at]
 }
 
@@ -238,6 +242,16 @@ type EverNewsConnectionKeyword {
   connection: EverNewsConnection
 }
 
+type EverNewsConnectionAgency {
+  key: String
+  connection: EverNewsConnection
+}
+
+type EverNewsConnectionDate {
+  key: String
+  connection: EverNewsConnection
+}
+
 type EverNewsConnectionPublished_at {
   key: DateTime
   connection: EverNewsConnection
@@ -250,6 +264,8 @@ input EverNewInput {
   pinStatus: Boolean
   content: String
   keyword: String
+  agency: String!
+  date: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -262,6 +278,8 @@ input editEverNewInput {
   pinStatus: Boolean
   content: String
   keyword: String
+  agency: String
+  date: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -762,7 +780,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnection_id | CategoryConnectionCreatedAt | CategoryConnectionUpdatedAt | CategoryConnectionName | CategoryConnectionPublished_at | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | EverNews | EverNewsConnection | EverNewsAggregator | EverNewsGroupBy | EverNewsConnectionId | EverNewsConnection_id | EverNewsConnectionCreatedAt | EverNewsConnectionUpdatedAt | EverNewsConnectionHeader | EverNewsConnectionPicture | EverNewsConnectionType | EverNewsConnectionPinStatus | EverNewsConnectionContent | EverNewsConnectionKeyword | EverNewsConnectionPublished_at | createEverNewPayload | updateEverNewPayload | deleteEverNewPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Category | CategoryConnection | CategoryAggregator | CategoryGroupBy | CategoryConnectionId | CategoryConnection_id | CategoryConnectionCreatedAt | CategoryConnectionUpdatedAt | CategoryConnectionName | CategoryConnectionPublished_at | createCategoryPayload | updateCategoryPayload | deleteCategoryPayload | EverNews | EverNewsConnection | EverNewsAggregator | EverNewsGroupBy | EverNewsConnectionId | EverNewsConnection_id | EverNewsConnectionCreatedAt | EverNewsConnectionUpdatedAt | EverNewsConnectionHeader | EverNewsConnectionPicture | EverNewsConnectionType | EverNewsConnectionPinStatus | EverNewsConnectionContent | EverNewsConnectionKeyword | EverNewsConnectionAgency | EverNewsConnectionDate | EverNewsConnectionPublished_at | createEverNewPayload | updateEverNewPayload | deleteEverNewPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!
